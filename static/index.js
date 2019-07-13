@@ -7,6 +7,7 @@ const messages = document.getElementById("messages");
 button.addEventListener("click", () => {
     const textarea = document.getElementById("textarea");
     let text = textarea.value;
+    textarea.value = "";
     socket.emit("message", {text});
 });
 
@@ -18,5 +19,4 @@ socket.on("message", obj => {
     messages.appendChild(node);
     messages.scrollTop = messages.scrollHeight;
     const textarea = document.getElementById("textarea");
-    textarea.value = "";
 })

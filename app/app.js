@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
 app.listen(8800);
 
 io.on("connection", socket => {
-    console.log(socket.id);
     socket.on("message", (obj) => {
         io.sockets.emit("message", obj)
     })
